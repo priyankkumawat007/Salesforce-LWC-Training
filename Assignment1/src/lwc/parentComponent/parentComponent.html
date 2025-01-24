@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-card">
+        <div>
+            <lightning-input label="Enter Your Greetings Here" value={message} onchange={handleChange}></lightning-input>
+        </div>
+        <br>
+        <div>
+            <lightning-button label="Reset" onclick={handleChange}></lightning-button>
+        </div>
+        <c-child-Component greetingmessage = {message}></c-child-Component>
+    </div>
+</template>

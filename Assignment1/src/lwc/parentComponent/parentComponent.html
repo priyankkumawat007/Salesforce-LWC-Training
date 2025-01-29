@@ -1,12 +1,14 @@
 <template>
-    <div class="slds-card">
-        <div>
+    <div class="slds-card slds-box slds-theme_shade slds-theme_alert-texture">
+        <div class="slds-box slds-theme_shade slds-theme_alert-texture">
             <lightning-input label="Enter Your Greetings Here" value={message} onchange={handleChange}></lightning-input>
+            <div class="slds-text-align_center">
+                <lightning-button  label="Reset" onclick={handleChange}>Reset</lightning-button>
+            </div>
         </div>
         <br>
-        <div>
-            <lightning-button label="Reset" onclick={handleChange}></lightning-button>
+        <div  class="slds-box slds-theme_shade slds-theme_alert-texture"> 
+            <c-child-Component greetingmessage = {message}></c-child-Component>
         </div>
-        <c-child-Component greetingmessage = {message}></c-child-Component>
     </div>
 </template>

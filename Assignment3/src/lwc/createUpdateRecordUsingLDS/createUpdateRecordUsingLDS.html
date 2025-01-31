@@ -1,0 +1,38 @@
+<template>  
+    <lightning-card title="Account" class="slds-form-element">
+        <div class="slds-p-around_medium">
+            <lightning-record-view-form  record-id ={recordId} object-api-name={State.objectApiAccount} density="compact">
+                <lightning-output-field field-name={recordId}></lightning-output-field>
+                <lightning-output-field field-name={State.name}></lightning-output-field>
+                <lightning-output-field field-name={State.phone}></lightning-output-field>
+                <lightning-output-field field-name={State.company}></lightning-output-field>
+                <lightning-output-field field-name={State.email}></lightning-output-field>
+            </lightning-record-view-form>
+            <lightning-button label="Create Contact" variant="brand" onclick={handleCreateContact} class="slds-p-around_medium"></lightning-button>
+        </div>
+    </lightning-card>
+    <lightning-card lwc:if={isvisible} title="Create Contact" class="slds-form-element">
+        <lightning-record-edit-form class="slds-p-around_medium" object-api-name={State.contactName} onsuccess={handleClickSubmit}>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <lightning-input-field field-name={State.contactAccountId} value={recordId} disabled></lightning-input-field>
+                <lightning-input-field field-name={State.contactFirstName}></lightning-input-field>
+                <lightning-input-field field-name={State.contactLastName}></lightning-input-field>
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <lightning-input-field field-name={State.contactPhone}></lightning-input-field>
+                <lightning-input-field field-name={State.contactEmail}></lightning-input-field>
+              </span>
+            </div>
+          </div>
+            <lightning-input-field field-name={State.contactFirstName}></lightning-input-field>
+            <lightning-input-field field-name={State.contactLastName}></lightning-input-field>
+            <lightning-input-field field-name={State.contactPhone}></lightning-input-field>
+            <lightning-input-field field-name={State.contactEmail}></lightning-input-field> -->
+            <lightning-button type="submit" label="Create" variant="brand"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

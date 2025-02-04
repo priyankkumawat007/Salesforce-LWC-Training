@@ -1,0 +1,18 @@
+<!-- customDataTable.html -->
+<template>
+    <div>
+        <div class="slds-grid slds-page-header forceRelatedListCardHeader" style="background-color: rgba(11, 92, 171, 1);">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <h2 class="slds-card__header-title">
+                    {headerType}
+                </h2>
+            </header>
+        </div>
+        <div style="height:200px;">
+            <lightning-datatable key-field="id" data={caseData} show-row-number-column columns={columns} onrowselection={handleFunction}
+            max-row-selection=1 enable-infinite-loading>
+            </lightning-datatable>
+        </div>
+    </div>
+    
+</template>

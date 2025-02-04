@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>SFDC_FetchCaseData</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Account_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>customDataTable</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>62.0</version>
+</Package>

@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <lightning-input type="text" name="ObjectApi" label="Object API Name" onchange={handleChange}></lightning-input>
+                <lightning-input type="text" name="FieldApi" label="Field API Name" onchange={handleChange}></lightning-input>
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <lightning-input type="text" name="Picklist" label="Label of Picklist" onchange={handleChange}></lightning-input>
+                <lightning-input type="text" name="Placeholder" label="Placeholder For Picklist" onchange={handleChange}></lightning-input>
+              </span>
+            </div>
+          </div>
+    </lightning-card>
+    <div>
+        <lightning-button label={comboLabel} onclick={handlechange}></lightning-button>
+        <div lwc:if={showCombox}>
+            <c-combo-box-practice object-api-name={createObjectName} field-api-name ={Field} label={label} placeholder={placeholder}></c-combo-box-practice>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,46 @@
+<template>
+      <lightning-modal-header label="Create Contact">
+        <div>
+          <lightning-input lwc:if={showSearchBar} placeholder="Search for any contact" value={searchKey} onchange={handleSearch}></lightning-input> 
+        </div>
+      </lightning-modal-header>
+    <lightning-modal-body> 
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <lightning-card  title="Relate Contacts" icon-name = "standard:related_list">
+          <div style="height: 300px;" lwc:if={isVisibleContactDetailForm}>
+            <lightning-datatable
+                    hide-checkbox-column="true"
+                    key-field="id"
+                    data={data}
+                    columns={columns}>
+            </lightning-datatable>
+            <lightning-spinner lwc:if={isLoad} alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+        </lightning-card>
+        
+      <lightning-card lwc:if={isVisibleForm} title="Create Contact" class="slds-form-element">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span>
+                <lightning-input label="Select Parent Account" value={AccountId}  onchange={handleChange} name="AccountId" disable></lightning-input>
+                <lightning-input label="First Name" value={FirstName} onchange={handleChange} name="FirstName"></lightning-input>
+                <lightning-input label="Last Name" value={LastName} onchange={handleChange} name="LastName" required="true"></lightning-input>
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <lightning-input label="Phone"  value={Phone} onchange={handleChange} name="Phone"></lightning-input>
+                <lightning-input label="Email" value={Email} onchange={handleChange} name="Email"></lightning-input>
+              </span>
+            </div>
+          </div>
+          <br>
+            <lightning-button label="Create" variant="brand" onclick={ShowContactFormAgain}> Create</lightning-button>
+            <!-- <lightning-button variant="brand" label={createContactButtonValue} onclick={handleVisibleContactTable}></lightning-button> -->
+    </lightning-card>
+    </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <button class="slds-button slds-button_neutral" onclick={ShowCreateForm}>Create Contact</button>
+    </lightning-modal-footer>
+</template>

@@ -5,7 +5,7 @@ import Account_OBJECT from '@salesforce/schema/Account';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
 import PHONE_FIELD from '@salesforce/schema/Account.Phone_Number__c';
 import WEBSITE_FIELD from '@salesforce/schema/Account.Website';
-import MyModal from "c/assessmentLWCWizard";
+import MyModal from "c/assessmentContactSaveForm";
 const columns = [
     { label: 'Id', fieldName: 'Id' },
     { label: 'Name', fieldName: 'Name' },
@@ -58,11 +58,10 @@ export default class AccountManagerWizard extends LightningElement {
                     varient : 'success'
             });
         this.dispatchEvent(toastEvent);
-        const result = await  MyModal.open({
+        const result = await MyModal.open({
               size : 'large',
-        }).then((result) => {
-                console.log(result);
-        });
+              accId : this.accountId
+        })
     }
 
     handleError(event){

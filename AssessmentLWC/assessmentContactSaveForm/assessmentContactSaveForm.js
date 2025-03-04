@@ -11,7 +11,7 @@ import createContact from '@salesforce/apex/CreateContact.createContactsUsingAcc
 import countContact from '@salesforce/apex/SFDC_FetchRelatedContact.contactCount';
 import { refreshApex } from '@salesforce/apex'; 
 import {notifyRecordUpdateAvailable } from 'lightning/uiRecordApi';
-// import LightningModal from 'lightning/modal';
+import LightningModal from 'lightning/modal';
 
 const COLUMNS = [
     {label:'Account Id' , fieldName:'AccountId'},
@@ -19,7 +19,7 @@ const COLUMNS = [
     {label:'First Name', fieldName:'FirstName'},
     {label:'Email' , fieldName:'Email'}
 ]
-export default class ContactSaveForm extends LightningElement {
+export default class ContactSaveForm extends LightningModal {
     isLoad = false;
     @api options = [];
     visible = true;
@@ -41,7 +41,8 @@ export default class ContactSaveForm extends LightningElement {
         contactEmail: CONTACT_PHONE,
         contactAccountId: ACCOUNT_ID
     }
-    AccountId ='001NS00000wUfnXYAS';
+    @api
+    accId ;
     FirstName ='';
     LastName ='';
     Phone ='';
